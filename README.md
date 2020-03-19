@@ -8,7 +8,7 @@ PHPstorm laravel代码提示 https://github.com/barryvdh/laravel-ide-helper
 composer require barryvdh/laravel-ide-helper
 
 ### 创建数据库表
-php artisan make:migration create_hd_table --create=hd
+php artisan make:migration create_laravel_table --create=laravel
 
 php artisan migrate
 
