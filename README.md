@@ -13,5 +13,22 @@ php artisan make:migration create_laravel_table --create=laravel
 php artisan migrate
 
 遇到创建不了表: https://www.cnblogs.com/wangzhaobo/p/9586213.html
+或者修改config/database.php>mysql
+````javascript
+ 'charset' => 'utf8',
+ 'collation' => 'utf8_unicode_ci',
+````
+### 路由访问不了
+修改nginx网站配置
+````text
+location / {
+    # First attempt to serve request as file, then
+    # as directory, then fall back to displaying a 404.
+    # try_files $uri $uri/ =404;
+    try_files $uri $uri/ /index.php?$query_string;
+}
+````
+
+
 
 

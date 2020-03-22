@@ -18,4 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 //composer install  安装vendor
+
+include __DIR__.'/admin/web.php';
