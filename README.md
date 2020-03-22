@@ -7,6 +7,13 @@ PHPstorm laravel代码提示 https://github.com/barryvdh/laravel-ide-helper
 
 composer require barryvdh/laravel-ide-helper
 
+在config/app.php中配置 
+````
+'providers' => [
+    Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+],
+````
+
 ### 创建数据库表
 php artisan make:migration create_laravel_table --create=laravel
 
@@ -34,23 +41,37 @@ location / {
 ###测试数据
 
 >创建model
-````javascript
+````text
 php artisan make:model Model/Admin -m
 ````
 >新建表
-````
+````text
 php artisan migrate
 ````
 >laravel自带工具
-````
+````text
 php artisan tinker
 ````
 >创建3条测试数据
-````
+````text
 factory(App\Model\Admin::class,3)->create();
 ````
 >创建控制器
-````
+````text
 php artisan make:controller Admin/EntryController
 ````
->
+>在config/Auth.php配置model验证
+````text
+'guards' => [
+    'admin' => [
+        'driver' => 'session',
+        'provider' => 'admins',
+    ],
+],
+'providers' => [
+    'admins' => [
+        'driver' => 'eloquent',
+        'model' => App\Model\Admin::class,
+    ],
+],
+````

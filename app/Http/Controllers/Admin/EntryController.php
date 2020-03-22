@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
+use Auth;
 use Request;
 
 class EntryController extends Controller
@@ -14,7 +14,8 @@ class EntryController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * fonnie 2020/03/22 15:04:29
      */
-    public function index(){
+    public function index()
+    {
 
         return view('index');
     }
@@ -37,15 +38,24 @@ class EntryController extends Controller
      */
     public function login()
     {
+        //依赖注入
+        //public function (Request $request){
+        //    $status = Auth::guard('admin')->attempt([
+        //        'username' => $request->input('username'),
+        //        'password' => $request->input('password'),
+        //    ]);
+        //}
         $status = Auth::guard('admin')->attempt([
             'username' => Request::input('username'),
             'password' => Request::input('password'),
         ]);
 
-       if($status){
-           return redirect('admin/index');
-       }
+        if ($status) {
+            return redirect('admin/index');
+        }
 
-       return redirect('admin/login')->with('error','用户名或密码错误!');
+        return redirect('admin/login')->with('error', '用户名或密码错误!');
     }
+
+
 }
