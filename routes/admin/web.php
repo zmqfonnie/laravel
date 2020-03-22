@@ -2,8 +2,12 @@
 /**
  * fonnie 2020/03/22 09:13:11
  */
-use Illuminate\Support\Facades\Route    ;
 
-Route::get('/abc',function (){
+Route::get('/abc', function () {
     return 'test';
+});
+
+//route组
+Route::group(['prefix'=>'admin','namespace'=>'Admin'],function (){
+    Route::get('/login','EntryController@login');
 });
