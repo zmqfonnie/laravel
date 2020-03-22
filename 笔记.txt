@@ -1,0 +1,7 @@
+phpstorm 快捷键
+Ctrl+Shift+N   查找文件
+
+
+
+laravel 函数
+dd();  打印输出
