@@ -4,4 +4,14 @@ Ctrl+Shift+N   查找文件
 
 
 laravel 函数
+MVC
+路由 routes
+模型 app/Model
+视图 resoutces/views
+控制器 app/Http
+
 dd();  打印输出
+
+
+路由失效 nginx+laravel
+location / { try_files $uri $uri/ /index.php?$query_string; }

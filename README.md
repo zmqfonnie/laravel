@@ -75,3 +75,7 @@ php artisan make:controller Admin/EntryController
     ],
 ],
 ````
+>创建中间件
+````
+php artisan make:middleware AdminMiddleware
+````

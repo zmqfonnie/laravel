@@ -9,6 +9,12 @@ use Request;
 class EntryController extends Controller
 {
 
+    public function __construct()
+    {
+        //执行中间件 过滤不需要验证方法
+        $this->middleware('admin')->except(['login','loginForm']);
+    }
+
     /**
      * 后台主页
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
@@ -17,7 +23,7 @@ class EntryController extends Controller
     public function index()
     {
 
-        return view('index');
+        return view('admin.entry.index');
     }
 
 

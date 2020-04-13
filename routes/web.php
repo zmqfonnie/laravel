@@ -22,3 +22,6 @@ Route::get('/', function () {
 //composer install  安装vendor
 
 include __DIR__.'/admin/web.php';
+Route::get('/test', function () {
+    return 'test';
+});
